@@ -2,7 +2,7 @@ resources:
   - name: demo_gitRepo
     type: GitRepo
     configuration:
-      path: shimib/Horae
+      path: shimib/Hoare
       gitProvider: GitHub
       branches:
         include: master        
