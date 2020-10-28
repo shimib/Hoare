@@ -63,7 +63,9 @@ then
  MAIN_ACC_TOKEN=`jfrog rt curl -d "{\\"service_id\\" : \\"${MAIN_SRV_ID}\\"}" -H "Content-Type:application/json" --silent --url /api/security/access/admin/token`
  ACC_TOKEN=`echo $MAIN_ACC_TOKEN | jq -c -r .tokenValue`
  MAIN_ADM_TOKEN_FULL=`jfrog rt curl -d "scope=${MAIN_SRV_ID}:admin" -d "username=${int_Artifactory_user}" -H "Authorization: Bearer ${ACC_TOKEN}"  --silent --url /api/security/token`
+ echo "full: ${MAIN_ADM_TOKEN_FULL}"
  MAIN_ADM_TOKEN=`echo $MC_TOKEN_FULL | jq -c -r .access_token`
+ echo "tkn: ${MAIN_ADM_TOKEN}"
  MC_TOKEN_FULL=`curl -s -X POST -d "username=${int_Artifactory_user}" -d 'scope=applied-permissions/user' -d 'audience=jfmc@*' -d 'expires_in=3600' -d 'grant_type=client_credentials'  -H "Authorization: Bearer ${ACC_TOKEN}" ${BASEURL}/access/api/v1/oauth/token`
  MC_TOKEN=`echo $MC_TOKEN_FULL | jq -c -r .access_token`
  JPDS=`curl --silent -X GET -H "Authorization: Bearer ${MC_TOKEN}" ${BASEURL}/mc/api/v1/jpds`
@@ -164,6 +166,7 @@ then
 
   echo "Creating prod local repositories on the edge node ${edge_url}"
   for file in ${dirName}/*prod*.local; do
+    echo "jfrog rt rc --access-token ${MAIN_ADM_TOKEN} --url \"${edge_url}artifactory\" ${file} "
     jfrog rt rc --access-token ${MAIN_ADM_TOKEN} --url "${edge_url}artifactory" ${file} 
   done
  done
