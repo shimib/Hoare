@@ -63,9 +63,7 @@ then
  MAIN_ACC_TOKEN=`jfrog rt curl -d "{\\"service_id\\" : \\"${MAIN_SRV_ID}\\"}" -H "Content-Type:application/json" --silent --url /api/security/access/admin/token`
  ACC_TOKEN=`echo $MAIN_ACC_TOKEN | jq -c -r .tokenValue`
  MAIN_ADM_TOKEN_FULL=`jfrog rt curl -d "scope=${MAIN_SRV_ID}:admin" -d "username=${int_Artifactory_user}" --silent --url /api/security/token`
- echo "full: ${MAIN_ADM_TOKEN_FULL}"
- MAIN_ADM_TOKEN=`echo $MC_TOKEN_FULL | jq -c -r .access_token`
- echo "tkn: ${MAIN_ADM_TOKEN}"
+ MAIN_ADM_TOKEN=`echo $MAIN_ADM_TOKEN_FULL | jq -c -r .access_token`
  MC_TOKEN_FULL=`curl -s -X POST -d "username=${int_Artifactory_user}" -d 'scope=applied-permissions/user' -d 'audience=jfmc@*' -d 'expires_in=3600' -d 'grant_type=client_credentials'  -H "Authorization: Bearer ${ACC_TOKEN}" ${BASEURL}/access/api/v1/oauth/token`
  MC_TOKEN=`echo $MC_TOKEN_FULL | jq -c -r .access_token`
  JPDS=`curl --silent -X GET -H "Authorization: Bearer ${MC_TOKEN}" ${BASEURL}/mc/api/v1/jpds`
