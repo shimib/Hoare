@@ -62,7 +62,7 @@ then
  MAIN_SRV_ID=`jfrog rt curl --silent --url /api/system/service_id`
  MAIN_ACC_TOKEN=`jfrog rt curl -d "{\\"service_id\\" : \\"${MAIN_SRV_ID}\\"}" -H "Content-Type:application/json" --silent --url /api/security/access/admin/token`
  ACC_TOKEN=`echo $MAIN_ACC_TOKEN | jq -c -r .tokenValue`
- MAIN_ADM_TOKEN_FULL=`jfrog rt curl -d "scope=${MAIN_SRV_ID}:admin" -d "username=${int_Artifactory_user}" -H "Authorization: Bearer ${ACC_TOKEN}"  --silent --url /api/security/token`
+ MAIN_ADM_TOKEN_FULL=`jfrog rt curl -d "scope=${MAIN_SRV_ID}:admin" -d "username=${int_Artifactory_user}" --silent --url /api/security/token`
  echo "full: ${MAIN_ADM_TOKEN_FULL}"
  MAIN_ADM_TOKEN=`echo $MC_TOKEN_FULL | jq -c -r .access_token`
  echo "tkn: ${MAIN_ADM_TOKEN}"
