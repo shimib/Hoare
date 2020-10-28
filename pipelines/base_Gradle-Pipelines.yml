@@ -113,7 +113,7 @@ pipelines:
       - name: gradle_docker_promote
         type: PromoteBuild
         configuration:
-          targetRepository:      docker-demo
+          targetRepository:      docker-demo-prod-local
           includeDependencies:   true
           status:                Passed
           comment:               Artifact passed Xray Scan
