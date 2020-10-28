@@ -25,7 +25,9 @@ pipelines:
           storeAtSourceArtifactory: Aritfactory
           inputResources:
                   - name:                final_docker_gradleBuild_Info
+                    trigger: false
                   - name:                final_docker_npmBuild_Info
+                    trigger: false
           outputResources:
             - name:                New_ReleaseBundle
           description:              RB of gradle and npm build
