@@ -164,7 +164,6 @@ then
 
   echo "Creating prod local repositories on the edge node ${edge_url}"
   for file in ${dirName}/*prod*.local; do
-    echo "jfrog rt rc --access-token ${MAIN_ADM_TOKEN} --url \"${edge_url}artifactory\" ${file} "
     jfrog rt rc --access-token ${MAIN_ADM_TOKEN} --url "${edge_url}artifactory" ${file} 
   done
  done
