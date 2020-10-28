@@ -9,6 +9,8 @@ pipelines:
     steps:
       - name: gradle_bld_app
         type: GradleBuild
+        execution:
+          - add_pipeline_variables JFROG_CLI_BUILD_NAME="GradleDemoBuild"
         configuration:
           runtime:
             type: image
