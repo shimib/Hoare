@@ -26,6 +26,8 @@ You'll need to create 3 Pipelines integrations - [see documentation](https://www
    An example token would look like that  `2f3ed30dec7537a56064436cbedacc00813d247d`
     
    1.1.2 Create a Pipelines integration of type GitHub named "**GitHub**" and provide connection details generated according to the [documentation](https://www.jfrog.com/confluence/display/JFROG/GitHub+Integration).
+   
+   ![Image of GitHub integration in pipelines](https://github.com/shimib/Hoare/blob/master/Github_integration.png)
 
   
 #####  1.2 Artifactory
@@ -91,11 +93,17 @@ You can follow the instructions [here](https://www.jfrog.com/confluence/display/
 
 You're all set now, and ready to initialize your environment and run your first Pipelines!
 
+  ![Image of all pipelines](https://github.com/shimib/Hoare/blob/master/Pipelines.png)
+
 #### 4.0 Run Pipelines
 
   4.1. Run the init pipeline 1st which should: Create users, groups, permissions, repositories, Xray policies & watches, update Xray indexes and setup Access Federation.
   
+  ![Image of init trigger](https://github.com/shimib/Hoare/blob/master/run_init.png)
+  
   4.2. Run the gradle_build pipeline
+  
+  ![Image of gradle pipelines trigger](https://github.com/shimib/Hoare/blob/master/run_gradle.png)
   
   4.3. Run the npm_build pipeline
   
