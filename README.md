@@ -85,9 +85,6 @@ You can follow the instructions [here](https://www.jfrog.com/confluence/display/
     
     > Enterprise+ Trial: Use -- 
         Pipeline Config File Filter : pipelines/.*\.yml
-    
-    > Free tier: Use --
-        Pipeline Config File Filter: pipelines/base_.*yml
   
 
 ### 3.0 Deployment
