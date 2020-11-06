@@ -26,8 +26,6 @@ You'll need to create 3 Pipelines integrations - [see documentation](https://www
    An example token would look like that  `2f3ed30dec7537a56064436cbedacc00813d247d`
     
    1.1.2 Create a Pipelines integration of type GitHub named "**GitHub**" and provide connection details generated according to the [documentation](https://www.jfrog.com/confluence/display/JFROG/GitHub+Integration).
-   
-   ![Image of GitHub integration in pipelines](https://github.com/shimib/Hoare/blob/master/Github_integration.png)
 
   
 #####  1.2 Artifactory
